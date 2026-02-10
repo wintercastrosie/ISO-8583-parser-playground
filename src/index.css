@@ -613,3 +613,207 @@ body::before {
   border: 1px solid var(--border-emphasis) !important;
   border-radius: var(--radius-md) !important;
 }
+
+/* ─── Force Light Mode ──────────────────────────────────────────── */
+/* Prevents OS dark mode from affecting scrollbars, form controls,
+   and any browser-chrome elements outside Mantine's reach */
+:root {
+  color-scheme: light only;
+}
+
+html,
+body {
+  color-scheme: light;
+}
+
+/* ─── Mobile Responsive ─────────────────────────────────────────── */
+/* Comprehensive mobile optimization for all major sections */
+
+@media (max-width: 768px) {
+
+  /* Hero — tighter padding on mobile */
+  .hero-section {
+    padding: var(--space-8) var(--space-4) var(--space-6);
+  }
+
+  .hero-section h1 {
+    letter-spacing: -0.5px;
+  }
+
+  /* Cards — less padding */
+  .brut-card {
+    padding: var(--space-3) !important;
+  }
+
+  /* Main grid — already single column via CSS, just tighten gap */
+  .main-grid {
+    gap: var(--space-4);
+    padding: 0 var(--space-2);
+  }
+
+  /* Hex input — smaller font, less min-height */
+  .hex-input-wrapper textarea {
+    font-size: 11px !important;
+    min-height: 80px;
+    padding: var(--space-3) !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Hex annotator — smaller font, allow scroll */
+  .hex-annotator {
+    font-size: 10px;
+    line-height: 1.8;
+    padding: var(--space-3);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Bitmap grid — 8 columns on mobile */
+  .bitmap-grid {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 2px;
+  }
+
+  .bitmap-cell {
+    font-size: 8px;
+  }
+
+  .bitmap-cell:hover {
+    transform: none;
+    /* Disable hover scale on touch */
+  }
+
+  /* MTI grid — 2 columns */
+  .mti-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+  }
+
+  .mti-cell {
+    padding: var(--space-3) var(--space-2);
+  }
+
+  .mti-cell .digit {
+    font-size: 24px;
+    margin-bottom: var(--space-2);
+  }
+
+  .mti-cell .label {
+    font-size: 7px;
+    letter-spacing: 1px;
+    padding: 1px 5px;
+  }
+
+  .mti-cell .value {
+    font-size: 10px;
+  }
+
+  /* Category pill — slightly smaller */
+  .category-pill {
+    font-size: 8px;
+    padding: 1px 6px;
+  }
+
+  /* Scenario cards — tighter */
+  .scenario-card {
+    padding: var(--space-3);
+  }
+
+  /* Learn steps — tighter on mobile */
+  .learn-steps li {
+    padding: 8px 0 8px 28px;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+
+  .learn-steps li::before {
+    width: 22px;
+    height: 22px;
+    font-size: 9px;
+    left: -12px;
+  }
+
+  /* Footer — tighter */
+  .app-footer {
+    padding: var(--space-6) var(--space-4);
+    margin-top: var(--space-8);
+    font-size: 11px;
+  }
+
+  /* Mantine table — horizontal scroll wrapper handled in JSX,
+     but ensure cells don't enforce min-widths */
+  .mantine-Table-table {
+    font-size: 11px;
+  }
+
+  /* Mantine container — edge-to-edge on small screens */
+  .mantine-Container-root {
+    padding-left: var(--space-3) !important;
+    padding-right: var(--space-3) !important;
+  }
+
+  /* Tabs — smaller font */
+  .mantine-Tabs-tab {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  /* Paper padding override */
+  .mantine-Paper-root {
+    padding: var(--space-3) !important;
+  }
+
+  /* Group — allow wrapping */
+  .mantine-Group-root {
+    flex-wrap: wrap;
+  }
+
+  /* Accordion content — tighter */
+  .mantine-Accordion-content {
+    padding: var(--space-2) var(--space-3) !important;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Extra-small screens */
+  .hero-section {
+    padding: var(--space-6) var(--space-3) var(--space-4);
+  }
+
+  .hero-section h1 {
+    font-size: 24px !important;
+  }
+
+  .hero-subtitle {
+    font-size: 13px;
+  }
+
+  /* Hex annotator — even smaller */
+  .hex-annotator {
+    font-size: 9px;
+    padding: var(--space-2);
+    line-height: 1.6;
+  }
+
+  /* Bitmap — 8 columns is fine but even smaller cells */
+  .bitmap-cell {
+    font-size: 7px;
+  }
+
+  /* MTI grid stays 2-col but even more compact */
+  .mti-cell .digit {
+    font-size: 20px;
+  }
+
+  /* Tables — minimum viable */
+  .mantine-Table-table {
+    font-size: 10px;
+  }
+
+  /* Background grid — less visible on mobile */
+  body::before {
+    background-size: 40px 40px;
+    opacity: 0.5;
+  }
+}
