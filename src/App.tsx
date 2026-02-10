@@ -739,16 +739,16 @@ function HexAnnotator({ segments, highlightedDe, onFieldHover }: {
             <Group gap={6} mb="sm">
                 <IconCode size={18} />
                 <Text fw={700} size="sm">Hex Annotator</Text>
-                <Text size="xs" c="dimmed">Hover to see which bytes map to which field</Text>
+                <Text size="xs" c="dimmed">Click to see which bytes map to which field</Text>
             </Group>
             <div className="hex-annotator">
                 {segments.map((seg, i) => (
                     <Tooltip key={i} label={seg.label} withArrow>
                         <span
                             className={`hex-segment cat-${seg.category}`}
-                            onMouseEnter={() => seg.de !== undefined && onFieldHover(seg.de)}
-                            onMouseLeave={() => onFieldHover(null)}
+                            onClick={() => seg.de !== undefined && onFieldHover(highlightedDe === seg.de ? null : seg.de)}
                             style={{
+                                cursor: seg.de !== undefined ? 'pointer' : undefined,
                                 outline: highlightedDe !== null && seg.de === highlightedDe ? '2px solid white' : undefined,
                                 filter: highlightedDe !== null && seg.de !== highlightedDe && seg.de !== undefined ? 'brightness(0.5)' : undefined,
                             }}
