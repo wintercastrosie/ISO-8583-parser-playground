@@ -32,6 +32,8 @@ ISO 8583 is the **invisible backbone** of every card transaction — ATM withdra
 | Understanding MTIs | Look up tables in documentation | Auto-decoded with version/class/function/origin |
 | Identifying fields | Count bitmap bits by hand | Interactive bitmap visualization |
 | MCC codes | Cross-reference ISO 18245 lists | 1,088 codes with industry group labels |
+| Card BIN identification | Manual lookup on third-party sites | 374K BIN database with brand, issuer, country |
+| Luhn validation | Write your own checker | Instant ✅/❌ badge on every PAN |
 | Track 2 data | Parse separator characters manually | Auto-split PAN, expiry, service code |
 | Sharing findings | Copy/paste hex + explanations | Shareable URLs with full state |
 
@@ -44,7 +46,7 @@ This tool pairs with my [ISO 8583 Carousel & PDF Cheat Sheet](https://www.linked
 ### 🔍 Deep Message Parsing
 - **MTI Decoder** — Breaks down Message Type Indicator into version, class, function, and origin with human-readable descriptions (24 named types from the spec)
 - **Bitmap Visualization** — Interactive 64-bit primary bitmap with active field highlighting
-- **Hex Annotator** — Color-coded hex overlay showing which bytes map to which field, with category badges (Card/ID, Amount, Processing, Date/Time, etc.)
+- **Hex Annotator** — Color-coded hex overlay showing which bytes map to which field, with category badges (Card/ID, Amount, Processing, Date/Time, etc.). Click any segment to highlight and center the corresponding field
 
 ### 📊 Message Anatomy
 - **Quick Stats** — Total bytes, data element count, fixed-to-variable ratio, payload percentage
@@ -53,6 +55,8 @@ This tool pairs with my [ISO 8583 Carousel & PDF Cheat Sheet](https://www.linked
 
 ### 🏷️ Rich Data Enrichment
 - **1,088 Merchant Category Codes (MCC)** — Full ISO 18245 database with 22 industry group labels (sourced from [monobank_api](https://github.com/mamantoha/monobank_api) + [maximbilan/mcc](https://github.com/maximbilan/mcc))
+- **374K BIN Database** — Instant card BIN lookup showing Brand, Type, Category, Issuer, and Country for any PAN (sourced from [Carding-Tools-Web-Version](https://github.com/walterwhite-69/Carding-Tools-Web-Version))
+- **Luhn Validation** — Real-time Luhn algorithm check on DE2 (PAN) with ✅/❌ badge
 - **ISO 4217 Currency Codes** — 40+ currencies with symbols and minor unit precision
 - **Processing Codes** — DE3 decoded to human-readable transaction types
 - **Response Codes** — DE39 mapped to approval/decline reasons
@@ -105,13 +109,17 @@ This is a **zero-backend, client-side application**. Your hex data never leaves 
 ```
 ISO-8583-parser-playground/
 ├── src/
-│   ├── App.tsx            # Main component: UI, enrichment, MTI decoder, hex annotator
+│   ├── App.tsx            # Main component: UI, enrichment, BIN lookup, Luhn validator
 │   ├── parser.ts          # Binary ISO 8583 parser (hex → structured result)
 │   ├── fieldSpecs.ts      # 128 field definitions, processing/response codes
 │   ├── mccDatabase.ts     # 1,088 MCC codes (ISO 18245) with industry groups
 │   ├── presets.ts         # 10+ preset messages (ATM, POS, e-commerce, etc.)
 │   ├── index.css          # Dark theme, animations, responsive styles
 │   └── main.tsx           # React entry point with Mantine provider
+├── public/
+│   └── bin-list-data.csv  # 374K BIN entries (lazy-loaded at runtime)
+├── scripts/
+│   └── build-bin-data.cjs # Optional: CSV → JSON pre-processing utility
 ├── docs/
 │   └── screenshot-hero.png
 ├── index.html
@@ -168,6 +176,7 @@ Output goes to `dist/` — deploy to any static host (GitHub Pages, Netlify, Ver
 
 | Data | Source | Count |
 |------|--------|-------|
+| BIN Database | [Carding-Tools-Web-Version](https://github.com/walterwhite-69/Carding-Tools-Web-Version) `bin-list-data.csv` | 374K BINs |
 | MCC Codes | [monobank_api](https://github.com/mamantoha/monobank_api) + [maximbilan/mcc](https://github.com/maximbilan/mcc) | 1,088 codes |
 | MTI Descriptions | [moov-io/iso8583](https://github.com/moov-io/iso8583) `constant.go` | 24 types |
 | Field Specifications | ISO 8583:1987/1993 spec | 128 fields |
