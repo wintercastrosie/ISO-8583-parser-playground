@@ -633,10 +633,11 @@ body {
 
   /* Hero — tighter padding on mobile */
   .hero-section {
-    padding: var(--space-8) var(--space-4) var(--space-6);
+    padding: var(--space-6) var(--space-4) var(--space-4);
   }
 
   .hero-section h1 {
+    font-size: 28px !important;
     letter-spacing: -0.5px;
   }
 
@@ -647,35 +648,40 @@ body {
 
   /* Main grid — already single column via CSS, just tighten gap */
   .main-grid {
-    gap: var(--space-4);
-    padding: 0 var(--space-2);
+    gap: var(--space-3);
+    padding: 0;
   }
 
   /* Hex input — smaller font, less min-height */
   .hex-input-wrapper textarea {
     font-size: 11px !important;
-    min-height: 80px;
+    min-height: 70px;
     padding: var(--space-3) !important;
     line-height: 1.5 !important;
   }
 
   /* Hex annotator — smaller font, allow scroll */
   .hex-annotator {
-    font-size: 10px;
-    line-height: 1.8;
-    padding: var(--space-3);
+    font-size: 9.5px;
+    line-height: 1.7;
+    padding: var(--space-2) var(--space-3);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    word-break: break-all;
   }
 
-  /* Bitmap grid — 8 columns on mobile */
+  /* Bitmap grid — keep 16 columns but compact cells */
   .bitmap-grid {
-    grid-template-columns: repeat(8, 1fr);
-    gap: 2px;
+    grid-template-columns: repeat(16, 1fr);
+    gap: 1px;
   }
 
   .bitmap-cell {
-    font-size: 8px;
+    font-size: 7px;
+    aspect-ratio: auto;
+    padding: 3px 0;
+    min-width: 0;
+    border-radius: 2px;
   }
 
   .bitmap-cell:hover {
@@ -683,7 +689,7 @@ body {
     /* Disable hover scale on touch */
   }
 
-  /* MTI grid — 2 columns */
+  /* MTI grid — 2 columns, compact */
   .mti-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-2);
@@ -694,8 +700,8 @@ body {
   }
 
   .mti-cell .digit {
-    font-size: 24px;
-    margin-bottom: var(--space-2);
+    font-size: 22px;
+    margin-bottom: var(--space-1);
   }
 
   .mti-cell .label {
@@ -736,23 +742,31 @@ body {
   /* Footer — tighter */
   .app-footer {
     padding: var(--space-6) var(--space-4);
-    margin-top: var(--space-8);
+    margin-top: var(--space-6);
     font-size: 11px;
   }
 
-  /* Mantine table — horizontal scroll wrapper handled in JSX,
-     but ensure cells don't enforce min-widths */
+  /* ── Parse Result Tables ── */
   .mantine-Table-table {
     font-size: 11px;
   }
 
-  /* Mantine container — edge-to-edge on small screens */
+  /* Ensure tables can scroll horizontally */
+  .mantine-Table-scrollContainer,
+  .mantine-ScrollArea-root {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ── Mantine Overrides ── */
+
+  /* Container — edge-to-edge on small screens */
   .mantine-Container-root {
     padding-left: var(--space-3) !important;
     padding-right: var(--space-3) !important;
   }
 
-  /* Tabs — smaller font */
+  /* Tabs — smaller font, tighter */
   .mantine-Tabs-tab {
     font-size: 12px;
     padding: 8px 10px;
@@ -772,38 +786,97 @@ body {
   .mantine-Accordion-content {
     padding: var(--space-2) var(--space-3) !important;
   }
+
+  /* ── Message Anatomy Stats ── */
+  /* Remove excessive minHeight on stat boxes */
+  .mantine-SimpleGrid-root>div {
+    min-height: auto !important;
+  }
+
+  /* Ring progress — smaller on mobile */
+  .mantine-RingProgress-root {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .mantine-RingProgress-root svg {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  /* Stat values — slightly smaller */
+  .mantine-SimpleGrid-root .mantine-Text-root[style*="font-weight: 800"] {
+    font-size: 18px !important;
+  }
+
+  /* ── Hex Legend Badges ── */
+  .mantine-Badge-root {
+    font-size: 9px;
+    padding-left: 4px;
+    padding-right: 6px;
+    height: 18px;
+  }
+
+  /* ── Progress bars in category breakdown ── */
+  .mantine-Progress-root {
+    min-width: 60px;
+  }
+
+  /* ── Field Reference & Response Code Tables ── */
+  .mantine-Table-th,
+  .mantine-Table-td {
+    padding: 6px 4px !important;
+    font-size: 11px;
+  }
+
+  /* Badge in tables — smaller */
+  .mantine-Badge-root[data-variant="filled"] {
+    font-size: 9px;
+    height: 18px;
+    padding: 0 6px;
+  }
+
+  /* Search input in reference tab */
+  .mantine-TextInput-root {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 480px) {
+  /* Extra-small screens (iPhone SE, etc.) */
 
-  /* Extra-small screens */
   .hero-section {
-    padding: var(--space-6) var(--space-3) var(--space-4);
+    padding: var(--space-5) var(--space-3) var(--space-4);
   }
 
   .hero-section h1 {
-    font-size: 24px !important;
+    font-size: 22px !important;
   }
 
   .hero-subtitle {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   /* Hex annotator — even smaller */
   .hex-annotator {
-    font-size: 9px;
+    font-size: 8.5px;
     padding: var(--space-2);
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
-  /* Bitmap — 8 columns is fine but even smaller cells */
+  /* Bitmap — 16 columns, ultra-compact */
   .bitmap-cell {
-    font-size: 7px;
+    font-size: 6px;
+    padding: 2px 0;
   }
 
-  /* MTI grid stays 2-col but even more compact */
+  /* MTI grid — even more compact */
   .mti-cell .digit {
-    font-size: 20px;
+    font-size: 18px;
+  }
+
+  .mti-cell .value {
+    font-size: 9px;
   }
 
   /* Tables — minimum viable */
@@ -811,9 +884,41 @@ body {
     font-size: 10px;
   }
 
-  /* Background grid — less visible on mobile */
+  .mantine-Table-th,
+  .mantine-Table-td {
+    padding: 4px 3px !important;
+  }
+
+  /* Tabs even smaller */
+  .mantine-Tabs-tab {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+
+  /* Stats — even smaller */
+  .mantine-RingProgress-root,
+  .mantine-RingProgress-root svg {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* Category bars — tighter labels */
+  .mantine-Group-root[style*="flex-wrap: nowrap"] .mantine-Text-root[style*="width: 80"] {
+    width: 60px !important;
+    font-size: 10px !important;
+  }
+
+  /* Background grid — less visible */
   body::before {
     background-size: 40px 40px;
     opacity: 0.5;
+  }
+
+  /* Action icon buttons — slightly smaller */
+  .mantine-ActionIcon-root {
+    min-width: 28px;
+    min-height: 28px;
+    width: 28px;
+    height: 28px;
   }
 }
